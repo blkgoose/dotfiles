@@ -194,6 +194,7 @@ require("lazy").setup({
             typescript = { format = { enable = false } },
           },
         },
+        rust_analyzer = {},
       }
 
       mason.setup({ install_root_dir = fn.stdpath("data") .. "/lsp/" })
