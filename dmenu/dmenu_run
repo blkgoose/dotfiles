@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+dmenu_path \
+    | grep -vxf ~/.config/dmenu_ignore \
+    | dmenu "$@" \
+    | ${SHELL} &
