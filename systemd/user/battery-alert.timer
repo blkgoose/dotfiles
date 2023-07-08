@@ -1,0 +1,12 @@
+[Unit]
+Description=Battery alert check timer
+Requires=battery-alert.service
+
+[Timer]
+Unit=battery-alert.service
+OnBootSec=1min
+OnCalendar=*:0/1
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target

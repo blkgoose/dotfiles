@@ -1,0 +1,9 @@
+[Unit]
+Description=DuckDNS Update IP
+Wants=ddns.timer
+
+[Service]
+ExecStart=curl -L "https://www.duckdns.org/update?domains=alessio-vpn&token=dfbfa506-9934-4385-82a7-4f19ac331b98&ip="
+
+[Install]
+WantedBy=multi-user.target

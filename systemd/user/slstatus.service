@@ -1,0 +1,13 @@
+[Unit]
+Description=status bar text
+PartOf=graphical-session.target
+StartLimitBurst=3
+
+[Service]
+ExecStart=/usr/local/bin/slstatus
+Environment=DISPLAY=:0
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

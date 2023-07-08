@@ -1,0 +1,8 @@
+[Unit]
+Description=DTCH token sync
+
+[Service]
+ExecStart=rclone copy /home/alessio/.shared/X1017954@hdpdlkbo1bdp021.dlkbo1bdp.telecomitalia.local onedrive_eng:
+
+[Install]
+WantedBy=multi-user.target

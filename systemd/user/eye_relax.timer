@@ -1,0 +1,12 @@
+[Unit]
+Description=Helps relax eyes making with a notification
+Requires=eye_relax.service
+
+[Timer]
+Unit=eye_relax.service
+OnBootSec=1min
+OnCalendar=*:0/20
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target

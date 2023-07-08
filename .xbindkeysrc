@@ -1,0 +1,79 @@
+# vim:foldmethod=marker
+
+# player controls {{{
+"playerctl play-pause"
+    m:0x0 + c:172
+    XF86AudioPlay
+
+"playerctl next"
+    m:0x0 + c:171
+    XF86AudioNext
+
+"playerctl previous"
+    m:0x0 + c:173
+    XF86AudioPrev
+# }}}
+
+# volumes {{{
+"pactl set-sink-volume @DEFAULT_SINK@ -5%; volume_notification"
+    m:0x0 + c:122
+    XF86AudioLowerVolume
+
+"pactl set-sink-volume @DEFAULT_SINK@ +5%; volume_notification"
+    m:0x0 + c:123
+    XF86AudioRaiseVolume
+
+"pactl set-sink-mute @DEFAULT_SINK@ toggle; volume_notification"
+    m:0x0 + c:121
+    XF86AudioMute
+
+"spotify_volume_control 5%-"
+    m:0x1 + c:122
+    Shift + XF86AudioLowerVolume
+
+"spotify_volume_control 5%+"
+    m:0x1 + c:123
+    Shift + XF86AudioRaiseVolume
+# }}}
+
+# dunst {{{
+"dunstctl close"
+    m:0x40 + c:25
+    Mod4 + w
+
+"dunstctl history-pop"
+    m:0x40 + c:26
+    Mod4 + e
+
+"dunstctl context"
+    m:0x40 + c:27
+    Mod4 + r
+# }}}
+
+# screen {{{
+"light -U 5; brightness_notification"
+    m:0x0 + c:232
+    XF86MonBrightnessDown
+
+"light -A 5; brightness_notification"
+    m:0x0 + c:233
+    XF86MonBrightnessUp
+
+# screen off
+"xset dpms force off"
+    m:0x0 + c:127
+    Pause
+
+# suspend
+"systemctl suspend"
+    m:0x0 + c:78
+    Scroll_Lock
+
+"dm-tool lock"
+    m:0x0 + c:107
+    Print
+}}}
+
+"dunstctl set-paused toggle"
+    m:0x0 + c:66
+    VoidSymbol

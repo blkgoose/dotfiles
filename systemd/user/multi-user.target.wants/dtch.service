@@ -1,0 +1,19 @@
+[Unit]
+Description=DTCH token
+Requires=tim_juniper.service
+StartLimitInterval=43200
+StartLimitBurst=3
+
+[Service]
+Type=notify
+User=alessio
+Group=vboxusers
+NotifyAccess=all
+Environment=DISPLAY=:0
+ExecStart=tokenupdate WIN10 X1017954 "LK_VAvwHK8s3@fet" hdpdlkbo1bdp021 12345678
+Restart=on-failure
+RestartSec=30
+WatchdogSec=600
+
+[Install]
+WantedBy=multi-user.target

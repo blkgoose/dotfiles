@@ -1,0 +1,10 @@
+[Unit]
+Description=Timely login to ECR
+
+[Timer]
+OnStartupSec=10
+OnCalendar=Mon,Tue,Wed,Thu,Fri *-*-* 09,21:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,8 @@
+[Unit]
+Description=Look out!
+
+[Service]
+ExecStart=notify-send -i "windows" -a "Look out!" "Relax your eyes looking out the window" -u low
+
+[Install]
+WantedBy=multi-user.target

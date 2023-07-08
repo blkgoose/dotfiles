@@ -1,0 +1,13 @@
+[Unit]
+Description=enable kdeconnect daemon for phone usage
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/lib/kdeconnectd
+Environment=DISPLAY=:0
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=default.target

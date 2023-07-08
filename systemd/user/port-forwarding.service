@@ -1,0 +1,9 @@
+[Unit]
+Description=Update UPnP Port Forwarding Table
+Wants=port-forwarding.timer
+
+[Service]
+ExecStart=fish .config/port-forwarding.fish
+
+[Install]
+WantedBy=multi-user.target

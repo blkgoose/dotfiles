@@ -1,0 +1,11 @@
+[Unit]
+Description=let you eyes rest gradualy
+
+[Service]
+Type=simple
+ExecStart=bash -c "redshift -b 1:0.6 -l $(curl -q ipinfo.io | jq .loc | tr ',' ':' | tr '\"' ' ')"
+Environment=DISPLAY=:0
+Restart=always
+
+[Install]
+WantedBy=default.target

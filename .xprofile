@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# pls for the love of god find a better way
+export PATH="${PATH}:${HOME}/.local/bin/chromeapps/"
+export PATH="${PATH}:${HOME}/.local/bin/user/"
+export PATH="${PATH}:${HOME}/.local/bin/"
+export PATH="${PATH}:${HOME}/.cargo/bin/"
+export PATH="${PATH}:/usr/bin/"
+
+. ${HOME}/.xsession

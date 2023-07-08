@@ -1,0 +1,8 @@
+[Unit]
+Description=Battery alert
+
+[Service]
+ExecStart=%h/.local/bin/user/battery_notification
+
+[Install]
+WantedBy=multi-user.target

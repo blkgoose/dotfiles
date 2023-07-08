@@ -1,0 +1,9 @@
+[Unit]
+Description=Teams notification hack
+
+[Service]
+ExecStart=/opt/google/chrome/google-chrome --no-startup-window --app='https://teams.microsoft.com/go#'
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

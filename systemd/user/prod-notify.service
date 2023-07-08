@@ -1,0 +1,12 @@
+[Unit]
+Description=Ricevitore notifiche da produzione
+#Requires=tim_juniper.service
+
+[Service]
+#User=alessio
+ExecStart=/usr/bin/prod-notify.sh /tmp/notifications
+#Restart=on-failure
+#RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

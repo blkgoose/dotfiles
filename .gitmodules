@@ -1,0 +1,3 @@
+[submodule "nvim_configuration"]
+	path = nvim_configuration
+	url = git@github.com:blkgoose/nvim_configuration
