@@ -194,7 +194,6 @@ require("lazy").setup({
             typescript = { format = { enable = false } },
           },
         },
-        rust_analyzer = {},
       }
 
       mason.setup({ install_root_dir = fn.stdpath("data") .. "/lsp/" })
@@ -239,7 +238,6 @@ require("lazy").setup({
         }), -- lua
         markdownlint = null_ls.builtins.formatting.markdownlint, -- markdown
         black = null_ls.builtins.formatting.black, -- python
-        rustfmt = null_ls.builtins.formatting.rustfmt, -- rust
         taplo = null_ls.builtins.formatting.taplo, -- toml
         eslint = null_ls.builtins.formatting.eslint, -- ts (js)
       }
