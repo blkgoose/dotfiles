@@ -1,0 +1,4 @@
+#!/bin/env bash
+
+sqlite3 ~/.config/beekeeper-studio/app.db "UPDATE saved_connection SET host = 'postgres-$QA_HASH.prima.qa' WHERE name = 'QA'"
+beekeeper-studio

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+sleep_for="${1:-10m}"
+state=$(cat /sys/class/power_supply/BAT0/status)
+perc=$(cat /sys/class/power_supply/BAT0/capacity)
+
+if [[ "${state}" =~ ^(Full|Not charging)$ ]] && [ "${perc}" != "100" ]; then
+	tpacpi-bat -s FD 1 1
+	sleep "${sleep_for}"
+	tpacpi-bat -s FD 1 0
+fi

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+volume="$(pactl get-sink-volume @DEFAULT_SINK@ | grep -oP "(\d*)%" | head -1)"
+mute="$(pactl get-sink-mute @DEFAULT_SINK@ | grep -q "no" && echo "on" || echo "off")"
+
+function notify() {
+    notify-send \
+        -a "volume" \
+        -u low \
+        -h string:x-dunst-stack-tag:volume \
+        "$@"
+}
+
+if [[ $volume == 0 || "$mute" == "off" ]]; then
+    notify \
+        -i audio-volume-muted \
+        -h int:value:"$volume" \
+        "volume: muted"
+else
+    notify \
+        -i audio-volume-high \
+        -h int:value:"$volume" \
+        "volume: ${volume}"
+fi

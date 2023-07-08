@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# TODO: switch to work chrome account
+
+slack &
+gmail &
+calendar &

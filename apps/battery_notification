@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+percentage=$(upower -d | grep -E 'percentage' | head -1 | cut -d: -f2 | cut -d% -f1 | xargs)
+state=$(upower -d | grep -E 'state' | head -1 | cut -d: -f2 | cut -d% -f1 | xargs)
+
+[[ $state == "charging" ]] \
+&& charging=true \
+|| charging=false
+
+if [[ "$percentage" -le 15 && "$charging" = "false" ]]
+then
+    notify-send \
+        -a "battery" \
+        -u critical \
+        -i notification-battery-000 \
+        -h int:value:"$percentage" \
+        -h string:x-dunst-stack-tag:battery \
+        "battery: ${percentage}"
+fi

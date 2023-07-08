@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+inc="$1"
+
+spotify_id=$(\
+    wpctl status \
+    | sed -n -e '/Streams:/,$p' \
+    | sed '/^Video/q' \
+    | grep "\. spotify" \
+    | cut -d. -f1 \
+    | awk '{printf "%s\n", $1}'
+)
+
+function notify() {
+    notify-send \
+        -a "volume:spotify" \
+        -u low \
+        -h string:x-dunst-stack-tag:spotify_volume \
+        -i spotify \
+        "$@"
+}
+
+# if spotify is not running, stop
+[[ -z "$spotify_id" ]] && {
+    notify "not running"
+    exit
+}
+
+# first client sets volume for all
+first_id=$(echo "${spotify_id}" | head -1)
+wpctl set-volume "${first_id}" "${inc}"
+volume_raw="$(wpctl get-volume "${first_id}" | cut -d: -f2 | xargs)"
+volume="$(echo "${volume_raw}" | awk '{printf "%0.0f", $1*100}')"
+
+for sid in $spotify_id
+do
+    wpctl set-volume "${sid}" "${volume_raw}"
+done
+
+notify \
+    -h int:value:"$volume" \
+    "spotify: ${volume}%"

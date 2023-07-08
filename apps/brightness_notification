@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+brightness=$(light -G | awk '{printf "%0.0f\n", $1}')
+
+notify-send \
+    -a "brightness" \
+    -u low \
+    -i display-brightness-symbolic \
+    -h int:value:"$brightness" \
+    -h string:x-dunst-stack-tag:brightness \
+    "brightness: ${brightness}"
+
