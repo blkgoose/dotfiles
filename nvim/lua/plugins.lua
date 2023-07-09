@@ -207,7 +207,7 @@ require("lazy").setup({
         automatic_installation = true,
       })
 
-      for lsp_name, config in pairs(vim.tbl_deep_extend(lsps, local_lsps)) do
+      for lsp_name, config in pairs(vim.tbl_deep_extend("force", lsps, local_lsps)) do
         lsp[lsp_name].setup({
           capabilities = capabilities,
           on_attach = on_attach,
