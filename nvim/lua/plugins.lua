@@ -194,22 +194,18 @@ require("lazy").setup({
             typescript = { format = { enable = false } },
           },
         },
-      }
-
-      local local_lsps = {
         rust_analyzer = {
-            cmd = { "rust-analyzer" }
-        }
+          cmd = { "rust-analyzer" },
+        },
       }
 
       mason.setup({ install_root_dir = fn.stdpath("data") .. "/lsp/" })
 
       mason_lsp_config.setup({
         ensure_installed = vim.tbl_keys(lsps),
-        automatic_installation = true,
       })
 
-      for lsp_name, config in pairs(vim.tbl_deep_extend("force", lsps, local_lsps)) do
+      for lsp_name, config in pairs(lsps) do
         lsp[lsp_name].setup({
           capabilities = capabilities,
           on_attach = on_attach,
@@ -248,10 +244,14 @@ require("lazy").setup({
         eslint = null_ls.builtins.formatting.eslint, -- ts (js)
       }
 
+      local local_sources = {
+        rustfmt = null_ls.builtins.formatting.rustfmt, -- rust
+      }
+
       mason.setup({ install_root_dir = fn.stdpath("data") .. "/lsp/" })
 
       null_ls.setup({
-        sources = vim.tbl_values(null_sources),
+        sources = vim.tbl_values(vim.tbl_deep_extend("force", null_sources, local_sources)),
         on_attach = function(client, bufnr)
           if client.supports_method("textDocument/formatting") then
             vim.api.nvim_create_autocmd("BufWritePre", {
@@ -270,7 +270,6 @@ require("lazy").setup({
 
       mason_null_ls.setup({
         ensure_installed = vim.tbl_keys(null_sources),
-        automatic_installation = true,
       })
     end,
   },
