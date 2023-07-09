@@ -197,7 +197,9 @@ require("lazy").setup({
       }
 
       local local_lsps = {
-        rust_analyzer = {}
+        rust_analyzer = {
+            cmd = "rust_analyzer"
+        }
       }
 
       mason.setup({ install_root_dir = fn.stdpath("data") .. "/lsp/" })
