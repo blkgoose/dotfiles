@@ -194,6 +194,9 @@ require("lazy").setup({
             typescript = { format = { enable = false } },
           },
         },
+      }
+
+      local local_lsps = {
         rust_analyzer = {
           cmd = { "rust-analyzer" },
         },
@@ -205,7 +208,7 @@ require("lazy").setup({
         ensure_installed = vim.tbl_keys(lsps),
       })
 
-      for lsp_name, config in pairs(lsps) do
+      for lsp_name, config in pairs(vim.tbl_deep_extend("force", lsps, local_lsps)) do
         lsp[lsp_name].setup({
           capabilities = capabilities,
           on_attach = on_attach,
