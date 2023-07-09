@@ -246,6 +246,7 @@ require("lazy").setup({
         black = null_ls.builtins.formatting.black, -- python
         taplo = null_ls.builtins.formatting.taplo, -- toml
         eslint = null_ls.builtins.formatting.eslint, -- ts (js)
+        nixfmt = null_ls.builtins.formatting.nixfmt, -- nix
       }
 
       local local_sources = {
