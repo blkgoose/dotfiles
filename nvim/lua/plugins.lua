@@ -194,7 +194,7 @@ require("lazy").setup({
             typescript = { format = { enable = false } },
           },
         },
-        ["nil"] = {},
+        nil_ls = {},
       }
 
       local local_lsps = {
