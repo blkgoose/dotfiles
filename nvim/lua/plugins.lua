@@ -196,6 +196,10 @@ require("lazy").setup({
         },
       }
 
+      local local_lsps = {
+        rust_analyzer = {}
+      }
+
       mason.setup({ install_root_dir = fn.stdpath("data") .. "/lsp/" })
 
       mason_lsp_config.setup({
@@ -203,7 +207,7 @@ require("lazy").setup({
         automatic_installation = true,
       })
 
-      for lsp_name, config in pairs(lsps) do
+      for lsp_name, config in pairs(vim.tbl_deep_extend(lsps, local_lsps)) do
         lsp[lsp_name].setup({
           capabilities = capabilities,
           on_attach = on_attach,
