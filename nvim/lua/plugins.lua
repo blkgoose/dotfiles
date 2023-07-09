@@ -198,7 +198,7 @@ require("lazy").setup({
 
       local local_lsps = {
         rust_analyzer = {
-            cmd = { "rust_analyzer" }
+            cmd = { "rust-analyzer" }
         }
       }
 
