@@ -4,17 +4,19 @@ import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.Ungrab
 import XMonad.Layout.ThreeColumns
 import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.DynamicLog (xmobar)
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
+import XMonad.Actions.UpdatePointer (updatePointer)
+import XMonad.Util.Run
 
-main = xmonad $ ewmhFullscreen . ewmh . xmobarProp $ myConfig
+myConf = def {
+            terminal = "alacritty"
+            , layoutHook = ThreeColMid 1 (3/100) (1/2)
+            , borderWidth = 2
+            , modMask = mod4Mask
+            }
 
-myConfig = def
-    { terminal = "alacritty"
-    , layoutHook = myLayout
-    , borderWidth = 3
-    , modMask = mod4Mask
-    }
 
-myLayout = ThreeColMid 1 (3/100) (1/2)
+main = do
+    xmonad =<< xmobar myConf
