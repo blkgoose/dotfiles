@@ -14,6 +14,7 @@ myConfig = def
     { terminal = "alacritty"
     , layoutHook = myLayout
     , borderWidth = 3
+    , modMask = mod4Mask
     }
 
 myLayout = ThreeColMid 1 (3/100) (1/2)
