@@ -281,6 +281,7 @@ require("lazy").setup({
 
   {
     "j-hui/fidget.nvim",
+    tag = "legacy",
     event = "BufReadPre",
     opts = { window = { relative = "editor" } },
     dependencies = { "neovim/nvim-lspconfig" },
