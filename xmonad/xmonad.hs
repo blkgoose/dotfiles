@@ -19,4 +19,4 @@ myConf = def {
 
 
 main = do
-    xmonad =<< xmobar myConf
+    xmonad =<< xmobar (ewmh . ewmhFullscreen $ myConf)
