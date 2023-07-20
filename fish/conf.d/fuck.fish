@@ -1,2 +1,0 @@
-# fuck
-thefuck --alias | source
