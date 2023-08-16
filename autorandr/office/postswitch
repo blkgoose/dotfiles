@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-xrandr --output DP-2-8 --pos 0x0
-xrandr --output DP-2-8 --pos 0x375
-~/.config/autorandr/postswitch
