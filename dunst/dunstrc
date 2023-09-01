@@ -154,7 +154,7 @@
 
 [google_notifications]
     appname = "Google Chrome"
-    script = "~/.local/bin/user/chrome_notification_mapper.sh"
+    script = "~/.local/bin/chrome_notification_mapper.sh"
     format = ""
 
 # [private_mode]
