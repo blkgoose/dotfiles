@@ -152,10 +152,10 @@
     body = "web.whatsapp.com*"
     format = "<b>%s<\b>\n\n%b\n"
 
-[google_notifications]
-    appname = "Google Chrome"
-    script = "~/.local/bin/chrome_notification_mapper.sh"
-    format = ""
+# [google_notifications]
+#     appname = "Google Chrome"
+#     script = "~/.local/bin/chrome_notification_mapper.sh"
+#     format = ""
 
 # [private_mode]
 #     format = "<b>%s"
