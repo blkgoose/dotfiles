@@ -114,12 +114,28 @@ local colorscheme = {
     h2 = colors.blue,
   },
   remaps = {
+
     base = {
       WinSeparator = { fg = colors.grey2, bg = colors.black },
       DiffAdd = { fg = colors.black, bg = colors.dark_green },
       DiffChange = { fg = colors.black, bg = colors.dark_yellow },
       DiffDelete = { fg = colors.black, bg = colors.dark_red },
       DiffText = { bg = colors.grey1 },
+      ["@lsp.type.class"] = { fg = syntax.type },
+      ["@lsp.type.decorator"] = { fg = syntax["function"] },
+      ["@lsp.type.enum"] = { fg = syntax.type },
+      ["@lsp.type.enumMember"] = { fg = syntax.constant },
+      ["@lsp.type.function"] = { fg = syntax["function"] },
+      ["@lsp.type.interface"] = { fg = syntax.type },
+      ["@lsp.type.macro"] = { fg = syntax["function"] },
+      ["@lsp.type.method"] = { fg = syntax["function"] },
+      ["@lsp.type.namespace"] = { fg = syntax.identifier },
+      ["@lsp.type.parameter"] = { fg = syntax.parameter },
+      ["@lsp.type.property"] = { fg = syntax.property },
+      ["@lsp.type.struct"] = { fg = syntax.type },
+      ["@lsp.type.type"] = { fg = syntax.type },
+      ["@lsp.type.typeParamater"] = { fg = syntax.type },
+      ["@lsp.type.variable"] = { fg = syntax.variable },
     },
     plugins = {
       microscope = {
